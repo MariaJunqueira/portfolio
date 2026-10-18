@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fluff &amp; Co. — Dog grooming salon (demo)</title>
+<meta name="description" content="Demo dog grooming website designed and built by Maria Junqueira.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff8f1;--pink:#ff8fab;--pink2:#ffd6e0;--mint:#9ee6cf;--mint2:#dcf7ee;--butter:#ffe08a;--lav:#c9b8ff;--ink:#3a2e39;--muted:#7d6f7b;--line:#f0e2d6;--r:28px;--fun:"Fredoka",system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 "Nunito",system-ui,sans-serif}
+a{color:inherit}
+.demo{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:99;background:var(--ink);color:#fff;font-size:13px;padding:10px 16px;border-radius:999px;box-shadow:0 8px 30px rgba(58,46,57,.35);white-space:nowrap}
+.demo a{font-weight:700;color:var(--butter)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:88px}
+.logo{font-family:var(--fun);font-weight:700;font-size:26px;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo b{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:14px;background:var(--pink);color:#fff;transform:rotate(-8deg)}
+nav ul{display:flex;gap:8px;list-style:none;margin:0;padding:0}
+nav ul a{text-decoration:none;font-weight:700;padding:8px 16px;border-radius:999px}
+nav ul a:hover{background:var(--pink2)}
+.btn{display:inline-block;font-family:var(--fun);font-weight:600;font-size:18px;padding:14px 28px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;border:0;cursor:pointer;box-shadow:0 5px 0 #000;transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translateY(2px);box-shadow:0 3px 0 #000}
+.btn:active{transform:translateY(5px);box-shadow:none}
+.btn.pink{background:var(--pink);box-shadow:0 5px 0 #d9637f}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-top:30px;padding-bottom:80px}
+h1{font-family:var(--fun);font-weight:700;font-size:clamp(48px,7vw,88px);line-height:.95;margin:0 0 22px;letter-spacing:-.01em}
+h1 span{display:inline-block;background:var(--butter);padding:0 14px;border-radius:20px;transform:rotate(-2deg)}
+.hero p{font-size:20px;color:var(--muted);max-width:480px}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.badges span{background:#fff;border:2px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:700;font-size:14px}
+.stage{position:relative;aspect-ratio:1;max-width:460px;width:100%;margin:0 auto}
+.blob{position:absolute;inset:0;background:var(--mint);border-radius:42% 58% 63% 37% / 41% 44% 56% 59%;animation:morph 9s ease-in-out infinite}
+@keyframes morph{50%{border-radius:58% 42% 38% 62% / 55% 38% 62% 45%}}
+.dog{position:absolute;inset:8%;width:84%;height:84%}
+.dog .tail{transform-origin:310px 250px;animation:wag .35s ease-in-out infinite alternate}
+@keyframes wag{from{transform:rotate(-14deg)}to{transform:rotate(18deg)}}
+.dog .ear{transform-origin:center top;animation:ear 4s ease-in-out infinite}
+@keyframes ear{0%,90%,100%{transform:none}95%{transform:rotate(-8deg)}}
+.bubble{position:absolute;font-family:var(--fun);font-weight:600;background:#fff;border-radius:20px;padding:8px 14px;box-shadow:0 6px 0 var(--line);animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.sparkle{position:absolute;font-size:26px;animation:tw 2s ease-in-out infinite}
+@keyframes tw{50%{transform:scale(.6) rotate(20deg);opacity:.5}}
+section{padding:90px 0}
+h2{font-family:var(--fun);font-weight:700;font-size:clamp(36px,5vw,56px);line-height:1;margin:0 0 14px}
+.center{text-align:center}
+.lead{color:var(--muted);font-size:19px;max-width:560px}
+.center .lead{margin:0 auto}
+.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:46px}
+.pack{border-radius:var(--r);padding:32px;position:relative;transition:transform .2s}
+.pack:hover{transform:rotate(-1deg) translateY(-6px)}
+.pack:nth-child(1){background:var(--mint2)}.pack:nth-child(2){background:var(--pink2)}.pack:nth-child(3){background:#ece5ff}
+.pack h3{font-family:var(--fun);font-size:28px;margin:0}
+.pack .pr{font-family:var(--fun);font-size:44px;font-weight:700;margin:6px 0 4px}
+.pack .pr small{font-size:16px;color:var(--muted);font-weight:500}
+.pack ul{padding:0;list-style:none;margin:18px 0 0}
+.pack li{padding:6px 0 6px 30px;position:relative}
+.pack li::before{content:"🐾";position:absolute;left:0;font-size:15px}
+.tagpop{position:absolute;top:-14px;right:24px;background:var(--ink);color:#fff;font-family:var(--fun);font-weight:600;border-radius:999px;padding:4px 14px;font-size:14px;transform:rotate(4deg)}
+.builder{background:#fff;border:3px solid var(--ink);border-radius:36px;padding:40px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;box-shadow:10px 10px 0 var(--ink)}
+.q{margin-bottom:28px}
+.q>b{font-family:var(--fun);font-size:20px;display:block;margin-bottom:12px}
+.pills{display:flex;flex-wrap:wrap;gap:10px}
+.pills input{position:absolute;opacity:0;pointer-events:none}
+.pills label{border:2px solid var(--line);border-radius:999px;padding:9px 18px;font-weight:700;cursor:pointer;transition:all .15s;user-select:none}
+.pills label:hover{border-color:var(--pink)}
+.pills input:checked+label{background:var(--pink);border-color:var(--pink);color:#fff;transform:scale(1.05)}
+.pills input:focus-visible+label{outline:3px solid var(--ink);outline-offset:2px}
+.summary{background:var(--butter);border-radius:28px;padding:30px;display:flex;flex-direction:column}
+.summary h3{font-family:var(--fun);font-size:24px;margin:0 0 10px}
+.line{display:flex;justify-content:space-between;padding:6px 0;border-bottom:2px dashed rgba(58,46,57,.15);font-weight:600}
+.total{font-family:var(--fun);font-size:56px;font-weight:700;line-height:1;margin:22px 0 4px}
+.dur{color:var(--muted);font-weight:700;margin-bottom:22px}
+.summary .btn{margin-top:auto;text-align:center}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.mem{text-align:center}
+.av{width:150px;height:150px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;font-size:64px;border:4px solid #fff;box-shadow:0 0 0 3px var(--line)}
+.mem h3{font-family:var(--fun);margin:0;font-size:22px}
+.mem p{margin:0;color:var(--muted)}
+.visit{background:var(--ink);color:#fff;border-radius:40px;padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.visit h2{color:#fff}.visit .lead{color:#d9cbd6}
+.visit dl{display:grid;grid-template-columns:auto 1fr;gap:10px 24px;margin:0}
+.visit dt{font-family:var(--fun);color:var(--butter)}
+.visit dd{margin:0}
+footer{padding:40px 0 100px;text-align:center;color:var(--muted);font-size:14px}
+.toast{position:fixed;left:50%;top:24px;transform:translate(-50%,-120px);background:var(--ink);color:#fff;font-family:var(--fun);padding:14px 22px;border-radius:999px;transition:transform .35s cubic-bezier(.2,1.4,.4,1);z-index:100}
+.toast.show{transform:translate(-50%,0)}
+@media (max-width:860px){.hero .wrap,.builder,.visit{grid-template-columns:1fr}.packs,.team{grid-template-columns:1fr}nav ul{display:none}.builder{padding:26px;box-shadow:6px 6px 0 var(--ink)}.visit{padding:32px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<div class="demo">Demo site · built by <a href="../../index.html">Maria Junqueira</a></div>
+<div class="toast" id="toast" role="status"></div>
+<nav><div class="wrap"><a class="logo" href="#"><b>F</b>Fluff &amp; Co.</a>
+<ul><li><a href="#packages">Packages</a></li><li><a href="#book">Book</a></li><li><a href="#team">Team</a></li><li><a href="#visit">Visit</a></li></ul>
+<a class="btn pink" href="#book">Book now</a></div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <h1>Happy dogs,<br><span>fresh fluff.</span></h1>
+    <p>A calm, cage-free grooming salon where every pup gets one-on-one attention and plenty of treats.</p>
+    <a class="btn" href="#book">Build your groom →</a>
+    <div class="badges"><span>🛁 Cage-free</span><span>🌿 Gentle shampoos</span><span>🐶 All sizes</span></div>
+  </div>
+  <div class="stage" aria-hidden="true">
+    <div class="blob"></div>
+    <svg class="dog" viewBox="0 0 400 400">
+      <ellipse cx="200" cy="340" rx="120" ry="14" fill="#3a2e39" opacity=".12"/>
+      <path class="tail" d="M300 250c30-10 50-40 46-70" stroke="#f1c08a" stroke-width="22" stroke-linecap="round" fill="none"/>
+      <ellipse cx="215" cy="265" rx="100" ry="70" fill="#f6d2a6"/>
+      <rect x="140" y="290" width="30" height="50" rx="15" fill="#f6d2a6"/><rect x="250" y="290" width="30" height="50" rx="15" fill="#f6d2a6"/>
+      <rect x="185" y="300" width="28" height="42" rx="14" fill="#efc493"/><rect x="215" y="300" width="28" height="42" rx="14" fill="#efc493"/>
+      <circle cx="160" cy="170" r="78" fill="#f6d2a6"/>
+      <ellipse class="ear" cx="96" cy="160" rx="26" ry="50" fill="#c98f5a"/>
+      <ellipse class="ear" cx="222" cy="150" rx="26" ry="50" fill="#c98f5a" style="animation-delay:.2s"/>
+      <ellipse cx="160" cy="200" rx="42" ry="32" fill="#fff4e6"/>
+      <circle cx="132" cy="160" r="9" fill="#3a2e39"/><circle cx="188" cy="160" r="9" fill="#3a2e39"/>
+      <circle cx="135" cy="157" r="3" fill="#fff"/><circle cx="191" cy="157" r="3" fill="#fff"/>
+      <ellipse cx="160" cy="190" rx="14" ry="10" fill="#3a2e39"/>
+      <path d="M146 208q14 14 28 0" stroke="#3a2e39" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M155 214q5 18 10 0z" fill="#ff8fab"/>
+      <circle cx="118" cy="196" r="10" fill="#ffb3c6" opacity=".7"/><circle cx="202" cy="196" r="10" fill="#ffb3c6" opacity=".7"/>
+      <path d="M118 236q42 22 84 0l-6 16q-36 16-72 0z" fill="#ff8fab"/><circle cx="160" cy="258" r="9" fill="#ffe08a"/>
+    </svg>
+    <div class="bubble" style="top:8%;right:4%">so fresh! ✨</div>
+    <div class="sparkle" style="top:30%;left:2%">✨</div>
+    <div class="sparkle" style="bottom:22%;right:6%;animation-delay:.7s">🫧</div>
+  </div>
+</div></header>
+
+<section id="packages"><div class="wrap">
+  <div class="center"><h2>Pick a pamper level</h2><p class="lead">Every visit includes a nail trim, ear clean and a very good-boy certificate.</p></div>
+  <div class="packs">
+    <div class="pack"><h3>Splash</h3><div class="pr">€35 <small>from</small></div><p class="muted">A quick refresh between full grooms.</p><ul><li>Bath &amp; blow-dry</li><li>Brush-out</li><li>Nail trim</li></ul></div>
+    <div class="pack"><span class="tagpop">Most loved</span><h3>Full Fluff</h3><div class="pr">€55 <small>from</small></div><p class="muted">The classic, head to tail.</p><ul><li>Everything in Splash</li><li>Breed-style haircut</li><li>Paw &amp; face tidy</li></ul></div>
+    <div class="pack"><h3>Royal Spa</h3><div class="pr">€80 <small>from</small></div><p class="muted">For dogs who deserve it all.</p><ul><li>Everything in Full Fluff</li><li>Blueberry facial</li><li>Paw balm &amp; bandana</li></ul></div>
+  </div>
+</div></section>
+
+<section id="book" style="padding-top:20px"><div class="wrap">
+  <div class="center" style="margin-bottom:44px"><h2>Build your groom</h2><p class="lead">See the price and time before you book.</p></div>
+  <form class="builder" id="b">
+    <div>
+      <div class="q"><b>1. How big is your dog?</b><div class="pills" data-name="size"></div></div>
+      <div class="q"><b>2. Choose a package</b><div class="pills" data-name="pack"></div></div>
+      <div class="q"><b>3. Any extras?</b><div class="pills" data-name="extra" data-multi></div></div>
+      <div class="q" style="margin:0"><b>4. Pick a day</b><div class="pills" data-name="day"></div></div>
+    </div>
+    <div class="summary">
+      <h3>Your booking</h3>
+      <div id="lines"></div>
+      <div class="total" id="total" aria-live="polite">€0</div>
+      <div class="dur" id="dur"></div>
+      <button class="btn" type="submit">Book this groom</button>
+    </div>
+  </form>
+</div></section>
+
+<section id="team"><div class="wrap center">
+  <h2>Meet the groomers</h2><p class="lead">Certified, patient and very good at belly rubs.</p>
+  <div class="team">
+    <div class="mem"><div class="av" style="background:var(--mint2)">✂️</div><h3>Sam</h3><p>Scissor artist · Poodles &amp; doodles</p></div>
+    <div class="mem"><div class="av" style="background:var(--pink2)">🛁</div><h3>Robin</h3><p>Bath boss · Nervous pups</p></div>
+    <div class="mem"><div class="av" style="background:#ece5ff">🦴</div><h3>Alex</h3><p>Big-dog whisperer</p></div>
+  </div>
+</div></section>
+
+<section id="visit" style="padding-top:0"><div class="wrap">
+  <div class="visit">
+    <div><h2>Come say woof</h2><p class="lead">Free parking, a water bowl at the door and a treat jar that never runs out.</p></div>
+    <dl><dt>Where</dt><dd>Example Lane 7, Utrecht</dd><dt>Tue – Fri</dt><dd>09:00 – 18:00</dd><dt>Saturday</dt><dd>09:00 – 16:00</dd><dt>Sun – Mon</dt><dd>Napping</dd></dl>
+  </div>
+</div></section>
+
+<footer>© Fluff &amp; Co. is a fictional business · Design &amp; build: <a href="../../index.html">Maria Junqueira</a></footer>
+
+<script>
+const data={
+  size:[["s","Small",1,0,"🐕 Small"],["m","Medium",1.25,15,"Medium"],["l","Large",1.6,30,"Large"],["xl","Giant",2,45,"Giant"]],
+  pack:[["splash","Splash",35,45],["full","Full Fluff",55,90],["royal","Royal Spa",80,120]],
+  extra:[["teeth","Teeth brushing",8,10],["deshed","De-shedding",15,20],["paw","Paw balm",6,5],["bow","Bow or bandana",3,0]],
+  day:[["tue","Tue"],["wed","Wed"],["thu","Thu"],["fri","Fri"],["sat","Sat"]]};
+const form=document.getElementById("b");
+form.querySelectorAll(".pills").forEach(p=>{const n=p.dataset.name,multi="multi" in p.dataset;
+  data[n].forEach((o,i)=>p.insertAdjacentHTML("beforeend",`<input type="${multi?"checkbox":"radio"}" name="${n}" id="${n}-${o[0]}" value="${i}" ${!multi&&i===(n==="pack"?1:0)?"checked":""}><label for="${n}-${o[0]}">${o[1]}</label>`))});
+const update=()=>{const g=n=>data[n][form.querySelector(`[name=${n}]:checked`).value];
+  const s=g("size"),pk=g("pack"),ex=[...form.querySelectorAll("[name=extra]:checked")].map(e=>data.extra[e.value]);
+  const base=Math.round(pk[2]*s[2]);let total=base,mins=pk[3]+s[3];
+  let html=`<div class="line"><span>${pk[1]} · ${s[1]}</span><span>€${base}</span></div>`;
+  ex.forEach(e=>{total+=e[2];mins+=e[3];html+=`<div class="line"><span>${e[1]}</span><span>€${e[2]}</span></div>`});
+  document.getElementById("lines").innerHTML=html;
+  document.getElementById("total").textContent="€"+total;
+  document.getElementById("dur").textContent=`About ${Math.floor(mins/60)?Math.floor(mins/60)+"h ":""}${mins%60?mins%60+"min":""} · ${g("day")[1]}`};
+form.addEventListener("change",update);update();
+form.onsubmit=e=>{e.preventDefault();const t=document.getElementById("toast");t.textContent="🐾 Booked! (Demo: nothing was sent.)";t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2600)};
+</script>
+</body></html>

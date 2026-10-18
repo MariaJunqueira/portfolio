@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brasa — Wood-fire Portuguese kitchen (demo)</title>
+<meta name="description" content="Demo restaurant website designed and built by Maria Junqueira.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#14100d;--bg2:#1c1612;--fg:#f3e9dc;--muted:#b3a493;--ember:#e8743b;--gold:#d9a85b;--line:rgba(243,233,220,.12);--serif:"Fraunces",Georgia,serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 "Inter",system-ui,sans-serif}
+a{color:inherit}
+.demo{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:99;background:#fff;color:#111;font:500 13px/1 "Inter",sans-serif;padding:10px 16px;border-radius:999px;box-shadow:0 8px 30px rgba(0,0,0,.4);white-space:nowrap}
+.demo a{font-weight:600}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+nav{position:absolute;top:0;left:0;right:0;z-index:5}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:84px}
+.logo{font-family:var(--serif);font-size:28px;font-weight:600;text-decoration:none;letter-spacing:.02em}
+.logo span{color:var(--ember)}
+nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+nav ul a{text-decoration:none;color:var(--muted)}nav ul a:hover{color:var(--fg)}
+.btn{display:inline-block;padding:14px 26px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;font-size:13px;letter-spacing:.14em;text-transform:uppercase;background:none;cursor:pointer;font-family:inherit;transition:background .3s,color .3s}
+.btn:hover,.btn.solid{background:var(--gold);color:var(--bg)}
+.btn.solid:hover{background:var(--fg);border-color:var(--fg)}
+header.hero{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden;
+  background:radial-gradient(ellipse 80% 50% at 50% 110%,rgba(232,116,59,.55),transparent 70%),radial-gradient(ellipse 50% 30% at 50% 100%,rgba(255,190,90,.5),transparent 70%),var(--bg)}
+.embers{position:absolute;inset:0;pointer-events:none}
+.embers i{position:absolute;bottom:-10px;width:4px;height:4px;border-radius:50%;background:var(--ember);box-shadow:0 0 8px 2px var(--ember);opacity:0;animation:rise linear infinite}
+@keyframes rise{0%{transform:translate(0,0);opacity:0}10%{opacity:1}100%{transform:translate(var(--x),-90vh);opacity:0}}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(56px,11vw,150px);line-height:.9;margin:0 0 20px;letter-spacing:-.02em}
+.hero h1 em{color:var(--ember)}
+.hero p{color:var(--muted);font-size:18px;max-width:520px;margin:0 auto 34px}
+.kick{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+section{padding:110px 0}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(38px,5vw,60px);line-height:1.05;margin:0 0 20px}
+h2 em{color:var(--ember)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.plate{aspect-ratio:4/5;border-radius:200px 200px 8px 8px;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse 9% 4% at 44% 52%,#c4572a 0 98%,transparent),radial-gradient(ellipse 9% 4% at 54% 58%,#b44d24 0 98%,transparent),radial-gradient(circle at 60% 48%,#7a9a4a 0 4%,transparent 4.5%),radial-gradient(circle at 40% 61%,#e8b04a 0 3.5%,transparent 4%),radial-gradient(circle at 50% 55%,#f3e9dc 0 28%,#e6d6c1 28% 31%,transparent 31%),linear-gradient(160deg,#3a2a1f,#1c1612)}
+.plate::after{content:"Grilled sardines, charred peppers, broa crumb";position:absolute;bottom:20px;left:0;right:0;text-align:center;font-family:var(--serif);font-style:italic;color:var(--muted);font-size:14px}
+.facts{display:flex;gap:40px;margin-top:34px}
+.facts b{display:block;font-family:var(--serif);font-size:40px;font-weight:400;color:var(--gold)}
+.facts span{font-size:13px;color:var(--muted)}
+.menu{background:var(--bg2);border-block:1px solid var(--line)}
+.tabs{display:flex;gap:8px;justify-content:center;margin:34px 0 46px;flex-wrap:wrap}
+.tabs button{font:inherit;font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:10px 20px;border:1px solid var(--line);background:none;color:var(--muted);cursor:pointer;border-radius:999px}
+.tabs button[aria-selected=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.dishes{display:grid;grid-template-columns:1fr 1fr;gap:6px 64px;max-width:900px;margin:0 auto}
+.dish{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:18px 0;border-bottom:1px dashed var(--line);animation:fade .5s both}
+.dish h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:0}
+.dish .p{font-family:var(--serif);color:var(--gold);font-size:20px}
+.dish p{grid-column:1/-1;margin:0;color:var(--muted);font-size:14px}
+.dish .v{font-size:11px;color:#9bc27a;border:1px solid #9bc27a55;border-radius:4px;padding:0 5px;margin-left:8px;vertical-align:3px}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}}
+.quote{text-align:center}
+.quote blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(26px,3.6vw,42px);line-height:1.3;max-width:860px;margin:0 auto 18px}
+.quote cite{color:var(--muted);font-style:normal;font-size:14px;letter-spacing:.1em;text-transform:uppercase}
+.book{display:grid;grid-template-columns:1fr 1.1fr;gap:64px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:var(--bg2);padding:32px;border:1px solid var(--line)}
+label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:grid;gap:8px}
+input,select{font:inherit;font-size:16px;color:var(--fg);background:var(--bg);border:1px solid var(--line);padding:12px 14px;border-radius:0;width:100%;color-scheme:dark}
+input:focus,select:focus{outline:2px solid var(--gold);outline-offset:1px}
+form .full{grid-column:1/-1}
+.ok{grid-column:1/-1;padding:16px;border:1px solid #9bc27a;color:#cfe6bb;display:none}
+.hours{list-style:none;padding:0;margin:24px 0}
+.hours li{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line)}
+.hours li span:last-child{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:50px 0 90px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+@media (max-width:820px){nav ul{display:none}.split,.book{grid-template-columns:1fr;gap:40px}.dishes{grid-template-columns:1fr}form{grid-template-columns:1fr}.plate{max-width:380px;margin:0 auto;width:100%}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></head><body>
+<div class="demo">Demo site · built by <a href="../../index.html">Maria Junqueira</a></div>
+<nav><div class="wrap"><a class="logo" href="#">Bras<span>a</span></a>
+<ul><li><a href="#story">Story</a></li><li><a href="#menu">Menu</a></li><li><a href="#book">Reserve</a></li></ul>
+<a class="btn" href="#book">Book a table</a></div></nav>
+
+<header class="hero">
+  <div class="embers" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="kick">Wood-fire Portuguese kitchen</div>
+    <h1>Cooked<br>over <em>fire.</em></h1>
+    <p>Charcoal-grilled fish, slow-roasted pork and natural wines from small Portuguese producers.</p>
+    <a class="btn solid" href="#book">Reserve a table</a> &nbsp; <a class="btn" href="#menu">See the menu</a>
+  </div>
+</header>
+
+<section id="story"><div class="wrap split">
+  <div class="plate" role="img" aria-label="Illustration of a plate of grilled sardines"></div>
+  <div>
+    <div class="kick">Our story</div>
+    <h2>A grill, a fire and<br><em>recipes from home.</em></h2>
+    <p style="color:var(--muted)">Brasa means ember. Everything on the menu meets the fire at some point: oak and olive wood, never gas. We buy whole fish at dawn and cook it the way it's done in coastal tascas, simply and generously.</p>
+    <div class="facts"><div><b>2</b><span>Kinds of wood</span></div><div><b>40</b><span>Seats</span></div><div><b>0</b><span>Gas burners</span></div></div>
+  </div>
+</div></section>
+
+<section id="menu" class="menu"><div class="wrap">
+  <div style="text-align:center"><div class="kick">The menu</div><h2>Changes with <em>the catch.</em></h2></div>
+  <div class="tabs" role="tablist"></div>
+  <div class="dishes" id="dishes" role="tabpanel"></div>
+</div></section>
+
+<section class="quote"><div class="wrap">
+  <blockquote>"Smoky, honest and generous. The kind of place you leave already planning your next visit."</blockquote>
+  <cite>A sample review for this demo</cite>
+</div></section>
+
+<section id="book"><div class="wrap book">
+  <div>
+    <div class="kick">Reservations</div>
+    <h2>Pull up <em>a chair.</em></h2>
+    <p style="color:var(--muted)">Tables for up to 8 online. For larger groups, call us.</p>
+    <ul class="hours">
+      <li><span>Monday – Tuesday</span><span>Closed</span></li>
+      <li><span>Wednesday – Thursday</span><span>17:30 – 22:30</span></li>
+      <li><span>Friday – Saturday</span><span>17:00 – 23:30</span></li>
+      <li><span>Sunday</span><span>13:00 – 21:00</span></li>
+    </ul>
+    <p style="color:var(--muted)">Example Street 1, Amsterdam</p>
+  </div>
+  <form id="res" novalidate>
+    <label>Name<input name="name" required autocomplete="name"></label>
+    <label>Guests<select name="guests"><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label>
+    <label>Date<input type="date" name="date" required></label>
+    <label>Time<select name="time"></select></label>
+    <label class="full">Email<input type="email" name="email" required autocomplete="email"></label>
+    <button class="btn solid full" type="submit">Request table</button>
+    <div class="ok" role="status" id="ok"></div>
+  </form>
+</div></section>
+
+<footer><div class="wrap"><span>© Brasa — a fictional restaurant</span><span>Design &amp; build: <a href="../../index.html">Maria Junqueira</a></span></div></footer>
+
+<script>
+const menu={
+ Petiscos:[["Pão & manteiga","Wood-oven bread, smoked butter, flor de sal","5",1],["Pimentos padrón","Blistered on the coals, sea salt","7",1],["Chouriço assado","Flamed at the table with aguardente","9"],["Amêijoas","Clams, garlic, coriander, white wine","14"]],
+ Grill:[["Sardinhas","Whole sardines, charred peppers, broa crumb","18"],["Polvo à lagareiro","Octopus, smashed potatoes, olive oil","26"],["Secretos de porco","Black pork, orange, piri-piri","24"],["Couve-flor na brasa","Ember-roasted cauliflower, romesco","17",1]],
+ Doces:[["Pastel de nata","Still warm, cinnamon on the side","4",1],["Arroz doce","Lemon rice pudding, burnt sugar","8",1],["Queijo da Serra","Soft sheep's cheese, quince","12",1]],
+ Vinhos:[["Vinho verde","Minho, light and fizzy · glass","6",1],["Douro tinto","Old vines, field blend · glass","8",1],["Porto tawny 10 anos","After dinner · glass","9",1]]};
+const tabs=document.querySelector(".tabs"),list=document.getElementById("dishes");
+const show=k=>{tabs.querySelectorAll("button").forEach(b=>b.setAttribute("aria-selected",b.textContent===k));
+ list.innerHTML=menu[k].map(([n,d,p,v],i)=>`<div class="dish" style="animation-delay:${i*60}ms"><h3>${n}${v?'<span class="v">V</span>':''}</h3><span class="p">€${p}</span><p>${d}</p></div>`).join("")};
+Object.keys(menu).forEach(k=>{const b=document.createElement("button");b.role="tab";b.textContent=k;b.onclick=()=>show(k);tabs.append(b)});
+show("Grill");
+// embers
+const em=document.querySelector(".embers");
+for(let i=0;i<28;i++){const e=document.createElement("i");e.style.left=Math.random()*100+"%";e.style.setProperty("--x",(Math.random()*200-100)+"px");e.style.animationDuration=6+Math.random()*8+"s";e.style.animationDelay=-Math.random()*14+"s";em.append(e)}
+// reservation
+const f=document.getElementById("res"),t=f.time,d=f.date;
+for(let h=17;h<=22;h++)for(const m of["00","30"])t.add(new Option(`${h}:${m}`));
+const today=new Date();d.min=today.toISOString().slice(0,10);
+f.onsubmit=e=>{e.preventDefault();const ok=document.getElementById("ok");
+ if(!f.checkValidity()){ok.style.display="block";ok.style.borderColor="var(--ember)";ok.textContent="Please fill in your name, a date and a valid email.";return}
+ const day=d.valueAsDate.getUTCDay();
+ if(day===1||day===2){ok.style.display="block";ok.style.borderColor="var(--ember)";ok.textContent="We're closed on Mondays and Tuesdays. Please pick another day.";return}
+ ok.style.borderColor="";ok.style.display="block";ok.textContent=`Thanks ${f.name.value.split(" ")[0]}! A table for ${f.guests.value} on ${d.valueAsDate.toLocaleDateString(undefined,{weekday:"long",day:"numeric",month:"long",timeZone:"UTC"})} at ${t.value} is requested. (Demo: nothing was sent.)`};
+</script>
+</body></html>
