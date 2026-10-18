@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TokenKit — Maria Junqueira</title><meta name="description" content="A design-token pipeline and small component library with light, dark and high-contrast themes.">
+<link rel="stylesheet" href="../assets/styles.css"></head><body>
+<header class="nav"><div class="wrap"><a class="brand" href="../index.html">Maria Junqueira</a>
+<nav><a href="../index.html#work">Work</a><a href="../index.html#experience">Experience</a><a href="../index.html#contact">Contact</a></nav></div></header>
+<main><div class="wrap project-hero prose" style="max-width:none"><a href="../index.html#work" class="muted">← All work</a>
+<div class="eyebrow" style="margin-top:20px">Concept project · 2026</div><h1>TokenKit</h1><p class="lead">A design-token pipeline and small component library with light, dark and high-contrast themes.</p>
+<div class="meta"><div><b>Role</b>Design &amp; frontend</div><div><b>Type</b>Self-initiated concept</div><div><b>Stack</b>CSS custom properties, Storybook-style docs</div></div></div>
+<div class="wrap prose" style="max-width:720px;padding-bottom:60px">
+<h2>The problem</h2><p>Products drift visually when colours and spacing are copy-pasted. Tokens give one source of truth that designers and engineers both trust.</p>
+<h2>Live theme switcher</h2>
+<div class="demo" id="tk"><p>
+<button class="chip" data-t="light">Light</button> <button class="chip" data-t="dark">Dark</button> <button class="chip" data-t="contrast">High contrast</button></p>
+<div id="tkpreview" style="padding:20px;border-radius:12px;background:var(--p-bg);color:var(--p-fg);border:1px solid var(--p-line)">
+<h3>Card title</h3><p>Components read semantic tokens, not raw colours.</p>
+<span style="display:inline-block;padding:8px 16px;border-radius:8px;background:var(--p-brand);color:var(--p-on)">Primary action</span></div></div>
+<h2>Token layers</h2>
+<ul><li><b>Primitive:</b> <code>blue-500</code>, <code>space-4</code></li><li><b>Semantic:</b> <code>color-action</code>, <code>surface-raised</code></li><li><b>Component:</b> <code>button-bg</code></li></ul>
+<p>Themes only remap the semantic layer, so components never change.</p>
+<h2>What I'd do next</h2><p>Publish tokens as JSON via Style Dictionary and add automated contrast checks to CI.</p>
+<script>
+const T={light:["#ffffff","#1c1b1a","#e8e3dc","#5b3df5","#fff"],dark:["#1d1b1a","#f2efea","#3a3633","#8f7bff","#141312"],contrast:["#000","#fff","#fff","#ffea00","#000"]};
+document.querySelectorAll("#tk [data-t]").forEach(b=>b.onclick=()=>{const v=T[b.dataset.t],s=document.getElementById("tkpreview").style;
+["--p-bg","--p-fg","--p-line","--p-brand","--p-on"].forEach((k,i)=>s.setProperty(k,v[i]))});
+document.querySelector("#tk [data-t=light]").click();
+</script>
+<footer><div class="wrap">© 2026 Maria Junqueira · Concept projects are self-initiated and not client work.</div></footer></body></html>

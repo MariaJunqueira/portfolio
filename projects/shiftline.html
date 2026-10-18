@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shiftline — Maria Junqueira</title><meta name="description" content="A weekly roster where managers drag shifts between people and instantly see conflicts.">
+<link rel="stylesheet" href="../assets/styles.css"></head><body>
+<header class="nav"><div class="wrap"><a class="brand" href="../index.html">Maria Junqueira</a>
+<nav><a href="../index.html#work">Work</a><a href="../index.html#experience">Experience</a><a href="../index.html#contact">Contact</a></nav></div></header>
+<main><div class="wrap project-hero prose" style="max-width:none"><a href="../index.html#work" class="muted">← All work</a>
+<div class="eyebrow" style="margin-top:20px">Concept project · 2026</div><h1>Shiftline</h1><p class="lead">A weekly roster where managers drag shifts between people and instantly see conflicts.</p>
+<div class="meta"><div><b>Role</b>Design &amp; frontend</div><div><b>Type</b>Self-initiated concept</div><div><b>Stack</b>TypeScript, vanilla DOM</div></div></div>
+<div class="wrap prose" style="max-width:720px;padding-bottom:60px">
+<h2>The problem</h2>
+<p>Scheduling tools get cluttered fast. Managers need to move shifts quickly, and they need to know right away when a move double-books someone or breaks a rest rule.</p>
+<h2>Try it</h2>
+<p class="muted">Click a shift, then click a day cell to move it. Moving a second shift onto the same person and day flags a conflict. Keyboard friendly.</p>
+<div class="demo scroll"><div id="roster" class="roster" role="grid" aria-label="Weekly roster"></div><p id="status" class="muted" role="status" aria-live="polite">Select a shift to begin.</p></div>
+<h2>Key decisions</h2>
+<ul><li><b>Click-to-move over pure drag:</b> works with keyboard and touch, drag can be layered on top.</li>
+<li><b>Conflicts are non-blocking:</b> flagged in a second colour plus text, never colour alone.</li>
+<li><b>Live region announcements</b> so screen-reader users get the same feedback.</li></ul>
+<h2>What I'd do next</h2><p>Undo/redo, rest-time rules per country, and optimistic sync with a backend.</p>
+<script>
+const people=["Ana","Bruno","Carla","Diego"],days=["Mon","Tue","Wed","Thu","Fri"];
+let shifts=[{id:1,p:0,d:0,t:"08–16"},{id:2,p:1,d:0,t:"12–20"},{id:3,p:2,d:1,t:"08–16"},{id:4,p:3,d:2,t:"14–22"},{id:5,p:0,d:3,t:"08–16"}];
+let sel=null;const el=document.getElementById("roster"),st=document.getElementById("status");
+function render(){el.innerHTML="";el.appendChild(document.createElement("div"));
+days.forEach(d=>{const h=document.createElement("div");h.className="h";h.textContent=d;el.appendChild(h)});
+people.forEach((n,p)=>{const l=document.createElement("div");l.textContent=n;el.appendChild(l);
+days.forEach((_,d)=>{const c=document.createElement("div");c.className="cell";c.setAttribute("role","gridcell");
+const here=shifts.filter(s=>s.p===p&&s.d===d);
+here.forEach(s=>{const b=document.createElement("button");b.className="shift chip"+(here.length>1?" conflict":"");
+b.style.cssText="width:100%;border:0;background:"+(here.length>1?"var(--accent-2)":"var(--accent)")+";color:#fff;"+(sel===s.id?"outline:3px solid var(--fg);":"");
+b.textContent=s.t+(here.length>1?" ⚠ conflict":"");b.setAttribute("aria-pressed",sel===s.id);
+b.onclick=e=>{e.stopPropagation();sel=sel===s.id?null:s.id;st.textContent=sel?"Shift "+s.t+" selected. Choose a cell to move it.":"Selection cleared.";render()};c.appendChild(b)});
+c.tabIndex=0;const move=()=>{if(sel==null)return;const s=shifts.find(x=>x.id===sel);s.p=p;s.d=d;sel=null;
+const n2=shifts.filter(x=>x.p===p&&x.d===d).length;st.textContent=n2>1?people[p]+" is double-booked on "+days[d]+".":"Moved to "+people[p]+", "+days[d]+".";render()};
+c.onclick=move;c.onkeydown=e=>{if(e.key==="Enter"&&e.target===c)move()};el.appendChild(c)})});}
+render();
+</script>
+<footer><div class="wrap">© 2026 Maria Junqueira · Concept projects are self-initiated and not client work.</div></footer></body></html>

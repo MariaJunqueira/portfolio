@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pulse — Maria Junqueira</title><meta name="description" content="A dashboard that shows weekly hours, absence and labour cost without making people squint.">
+<link rel="stylesheet" href="../assets/styles.css"></head><body>
+<header class="nav"><div class="wrap"><a class="brand" href="../index.html">Maria Junqueira</a>
+<nav><a href="../index.html#work">Work</a><a href="../index.html#experience">Experience</a><a href="../index.html#contact">Contact</a></nav></div></header>
+<main><div class="wrap project-hero prose" style="max-width:none"><a href="../index.html#work" class="muted">← All work</a>
+<div class="eyebrow" style="margin-top:20px">Concept project · 2026</div><h1>Pulse</h1><p class="lead">A dashboard that shows weekly hours, absence and labour cost without making people squint.</p>
+<div class="meta"><div><b>Role</b>Design &amp; frontend</div><div><b>Type</b>Self-initiated concept</div><div><b>Stack</b>SVG, no charting dependency</div></div></div>
+<div class="wrap prose" style="max-width:720px;padding-bottom:60px">
+<h2>The problem</h2><p>Dashboards often favour looking impressive over being read. Pulse starts from the question each number answers.</p>
+<h2>Sample chart</h2>
+<div class="demo"><svg viewBox="0 0 400 160" role="img" aria-label="Bar chart of hours worked per weekday: Mon 38, Tue 42, Wed 35, Thu 44, Fri 30" style="width:100%;height:auto" id="chart"></svg>
+<table style="width:100%;font-size:14px;margin-top:12px"><caption class="muted" style="text-align:left">Same data as a table</caption>
+<tr><th>Day</th><th>Hours</th></tr><tr><td>Mon</td><td>38</td></tr><tr><td>Tue</td><td>42</td></tr><tr><td>Wed</td><td>35</td></tr><tr><td>Thu</td><td>44</td></tr><tr><td>Fri</td><td>30</td></tr></table></div>
+<h2>Key decisions</h2><ul><li>Direct labels instead of legends.</li><li>Every chart ships with a data table for assistive tech.</li><li>Hand-written SVG keeps the bundle tiny.</li></ul>
+<script>
+const d=[["Mon",38],["Tue",42],["Wed",35],["Thu",44],["Fri",30]];let h="";
+d.forEach(([n,v],i)=>{const x=20+i*76,ht=v*3;h+=`<rect x="${x}" y="${140-ht}" width="56" height="${ht}" rx="6" fill="var(--accent)"/><text x="${x+28}" y="${134-ht}" text-anchor="middle" font-size="12" fill="var(--fg)">${v}</text><text x="${x+28}" y="156" text-anchor="middle" font-size="12" fill="var(--muted)">${n}</text>`});
+document.getElementById("chart").innerHTML=h;
+</script>
+<footer><div class="wrap">© 2026 Maria Junqueira · Concept projects are self-initiated and not client work.</div></footer></body></html>
