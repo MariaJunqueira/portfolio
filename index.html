@@ -1,78 +1,155 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Maria Junqueira — Senior Frontend Engineer</title><meta name="description" content="Portfolio of Maria Junqueira, Senior Frontend Engineer at Shiftbase.">
+<title>Maria Junqueira — Senior Frontend Engineer</title><meta name="description" content="Portfolio of Maria Junqueira, Senior Frontend Engineer at Shiftbase and founder of the Gryfi studio.">
+<meta property="og:title" content="Maria Junqueira — Senior Frontend Engineer"><meta property="og:description" content="Fast, accessible interfaces. Senior Frontend at Shiftbase, founder of Gryfi.">
+<meta property="og:image" content="https://gryfi.app/_astro/logo-hero-lockup-1024.DGI3WZ8i.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css"></head><body>
-<header class="nav"><div class="wrap"><a class="brand" href="index.html">Maria Junqueira</a>
-<nav><a href="index.html#work">Work</a><a href="index.html#experience">Experience</a><a href="index.html#contact">Contact</a></nav></div></header>
-<main>
-<div class="wrap hero">
-  <div class="eyebrow">Senior Frontend Engineer</div>
-  <h1>I build fast, accessible interfaces people enjoy using.</h1>
-  <p class="lead">Senior Frontend Engineer at <b>Shiftbase</b> since December 2024, with 10+ years across Angular, React and Vue, performance, and architecture. On the side I run a studio and ship my own games and apps, like <a href="https://gryfi.app">Gryfi</a>.</p>
-  <div class="btns"><a class="btn" href="#work">See my work</a><a class="btn ghost" href="#contact">Get in touch</a></div>
+<div class="progress" aria-hidden="true"></div>
+<header class="nav"><div class="wrap"><a class="brand" href="#top">Maria Junqueira</a>
+<nav><a href="#work">Work</a><a href="#gryfi">Gryfi</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav></div></header>
+<main id="top">
+
+<div class="hero">
+  <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="pill"><i></i>Senior Frontend at Shiftbase · Building Gryfi</div>
+    <h1 data-split>I build interfaces that <span class="rotator" data-words='["feel instant.","scale with teams.","people love.","take flight."]'><span class="txt grad">feel instant.</span><span class="caret" aria-hidden="true"></span></span></h1>
+    <p class="lead reveal" style="--d:6">Senior Frontend Engineer with <b>10+ years</b> across Angular, React and Vue, focused on performance, architecture and accessibility. On the side I run <b>Gryfi</b>, a small studio that makes games and apps.</p>
+    <div class="btns reveal" style="--d:8"><a class="btn" href="#work">See my work <span class="arrow">→</span></a><a class="btn ghost" href="#contact">Get in touch</a></div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true"></div>
 </div>
 
+<div class="wrap">
+  <div class="stats reveal">
+    <div class="stat"><b class="grad" data-count="10" data-suf="+">10+</b><span>years shipping for the web</span></div>
+    <div class="stat"><b class="grad" data-count="72" data-suf="%">72%</b><span>performance score, up from 30%</span></div>
+    <div class="stat"><b class="grad" data-count="60" data-pre="−" data-suf="%">−60%</b><span>PR review time with code standards</span></div>
+    <div class="stat"><b class="grad" data-count="50" data-pre="−" data-suf="%">−50%</b><span>projected cost of a notification system</span></div>
+  </div>
+</div>
+
+<div class="marquee" aria-label="Skills"><div class="track">
+  <span>TypeScript</span><span>Angular</span><span>RxJS</span><span>React</span><span>Vue 3</span><span>GraphQL</span><span>WebSockets</span><span>Accessibility</span><span>Core Web Vitals</span><span>Design systems</span><span>CI/CD</span><span>Game feel</span>
+  <span aria-hidden="true">TypeScript</span><span aria-hidden="true">Angular</span><span aria-hidden="true">RxJS</span><span aria-hidden="true">React</span><span aria-hidden="true">Vue 3</span><span aria-hidden="true">GraphQL</span><span aria-hidden="true">WebSockets</span><span aria-hidden="true">Accessibility</span><span aria-hidden="true">Core Web Vitals</span><span aria-hidden="true">Design systems</span><span aria-hidden="true">CI/CD</span><span aria-hidden="true">Game feel</span>
+</div></div>
+
 <section id="work"><div class="wrap">
-  <h2>Selected work</h2>
-  <div class="grid">
-    <a class="card" href="#gryfi">
-      <div class="thumb" style="background:linear-gradient(135deg,#d9d2ff,#ffe0d6);overflow:hidden"><img src="https://gryfi.app/_astro/logo-hero-lockup-1024.DGI3WZ8i.webp" alt="Gryfi, a baby griffin on a rock above floating islands" style="width:100%;height:100%;object-fit:cover" loading="lazy"></div>
+  <div class="kicker reveal" data-n="01">Selected work</div>
+  <h2 class="reveal">Things I've made <span class="grad">lately.</span></h2>
+  <div class="grid work-grid">
+    <a class="card reveal" href="#gryfi">
+      <div class="thumb"><img src="https://gryfi.app/_astro/logo-hero-lockup-1024.DGI3WZ8i.webp" alt="Gryfi, a baby griffin on a rock above floating islands" loading="lazy"></div>
+      <span class="go" aria-hidden="true">↓</span>
       <span class="badge">MY STUDIO</span><h3>Gryfi</h3>
-      <p class="muted">A small studio making apps, games and websites. First game, Potions Purr, is out now on iPhone.</p>
+      <p class="muted">A small studio making apps, games and websites. Its first game, Potions Purr, is out now on iPhone.</p>
       <span class="tag">Games</span><span class="tag">Mobile apps</span><span class="tag">Websites</span>
     </a>
-    <a class="card" href="projects/shiftline.html">
-      <div class="thumb" style="background:linear-gradient(135deg,#d9e8ff,#d6fff0)">🗓️</div>
+    <a class="card reveal" style="--d:1" href="projects/shiftline.html">
+      <div class="thumb" aria-hidden="true"><div class="mini-roster">
+        <b></b><i></i><i></i><b class="alt"></b><i></i>
+        <i></i><b class="mover"></b><i></i><i></i><b></b>
+        <b class="alt"></b><i></i><i></i><i></i><i></i>
+        <i></i><i></i><b></b><i></i><b class="alt"></b>
+      </div></div>
+      <span class="go" aria-hidden="true">→</span>
       <span class="badge">CONCEPT PROJECT</span><h3>Shiftline</h3>
-      <p class="muted">A drag-and-drop weekly roster with live conflict detection. Playable demo included.</p>
+      <p class="muted">A weekly roster with click-to-move shifts and live conflict detection. Playable demo inside.</p>
       <span class="tag">TypeScript</span><span class="tag">A11y</span><span class="tag">UX</span>
     </a>
-    <a class="card" href="projects/tokenkit.html">
-      <div class="thumb" style="background:linear-gradient(135deg,#ffe9b8,#ffd6e8)">🎨</div>
+    <a class="card reveal" href="projects/tokenkit.html">
+      <div class="thumb" aria-hidden="true"><div class="mini-tokens">
+        <div class="sw"><i style="--i:0;background:var(--accent)"></i><i style="--i:1;background:var(--accent-2)"></i><i style="--i:2;background:var(--gold)"></i><i style="--i:3;background:var(--mint)"></i><i style="--i:4;background:var(--fg)"></i></div>
+        <div class="ui">Card title<span>Primary</span></div>
+      </div></div>
+      <span class="go" aria-hidden="true">→</span>
       <span class="badge">CONCEPT PROJECT</span><h3>TokenKit</h3>
-      <p class="muted">A design-token system and component library with themes, built to scale across products.</p>
+      <p class="muted">A design-token system and component library with light, dark and high-contrast themes.</p>
       <span class="tag">Design systems</span><span class="tag">CSS</span>
     </a>
-    <a class="card" href="projects/pulse.html">
-      <div class="thumb" style="background:linear-gradient(135deg,#d6f5d6,#d9e8ff)">📈</div>
+    <a class="card reveal" style="--d:1" href="projects/pulse.html">
+      <div class="thumb" aria-hidden="true"><div class="mini-bars">
+        <i style="--h:55%;--i:0"></i><i style="--h:78%;--i:1"></i><i style="--h:46%;--i:2"></i><i style="--h:92%;--i:3"></i><i style="--h:64%;--i:4"></i><i style="--h:38%;--i:5"></i><i style="--h:70%;--i:6"></i>
+      </div></div>
+      <span class="go" aria-hidden="true">→</span>
       <span class="badge">CONCEPT PROJECT</span><h3>Pulse</h3>
-      <p class="muted">An accessible analytics dashboard focused on performance and readable data.</p>
+      <p class="muted">An accessible analytics dashboard where every chart is also a readable table.</p>
       <span class="tag">Data viz</span><span class="tag">Performance</span>
     </a>
   </div>
 </div></section>
 
-<section id="gryfi"><div class="wrap">
-  <img src="https://gryfi.app/_astro/logo-hero-lockup-1024.DGI3WZ8i.webp" alt="Gryfi logo: a baby griffin above floating islands and a golden castle" style="width:100%;max-width:420px;border-radius:16px;margin-bottom:20px" loading="lazy">
-  <div class="eyebrow">My studio</div>
-  <h2>Gryfi: built with care, made to fly</h2>
-  <p class="lead">Gryfi is a small studio that designs and builds apps, games and websites, and explains every step in plain language.</p>
-  <div class="grid" style="margin-top:28px">
-    <div class="card"><span class="badge">OUT NOW ON IPHONE</span><h3>Witch's Shop: Potions Purr</h3>
-      <p class="muted">A cozy colour-sort puzzle with a little black cat. Pour potions into matching vials, fill customers' orders and help the witch's shop grow.</p>
-      <span class="tag">iOS</span><span class="tag">Game</span></div>
-    <div class="card"><span class="badge">COMING SOON</span><h3>Gremlin</h3>
-      <p class="muted">A gentle planner for ADHD brains. It shows one thing at a time, and the creature you hatch never withers if you take a break.</p>
-      <span class="tag">Mobile app</span><span class="tag">Accessibility</span></div>
-    <div class="card"><span class="badge">COMING SOON</span><h3>More Witch's Shop games</h3>
-      <p class="muted">Brew Sudoku, Moonlit Mahjong, Brew Jam, Brew &amp; Merge, Guest Quest and Solitaire Brew: cosy puzzles, each with its own website.</p></div>
+<section id="gryfi" class="gryfi"><div class="wrap">
+  <div class="gryfi-hero">
+    <div>
+      <div class="kicker reveal" data-n="02">My studio</div>
+      <h2 class="reveal">Gryfi. Built with care, <span class="grad">made to fly.</span></h2>
+      <p class="lead reveal">A small studio that designs and builds apps, games and websites, and explains every step in plain language.</p>
+      <div class="btns reveal"><a class="btn" href="https://gryfi.app">Visit gryfi.app <span class="arrow">↗</span></a></div>
+    </div>
+    <img class="reveal" src="https://gryfi.app/_astro/logo-hero-lockup-1024.DGI3WZ8i.webp" alt="Gryfi, the baby griffin with cream and chestnut feathers, above floating islands and a golden castle" loading="lazy">
   </div>
-  <h3 style="margin-top:36px">Services</h3>
-  <p class="muted">Mobile apps for iPhone and Android · Games and game-feel for client projects · Fast, accessible websites that are easy to keep up to date. We talk, plan, build in the open with early working versions, then look after it after launch.</p>
-  <div class="btns"><a class="btn" href="https://gryfi.app">Visit gryfi.app</a></div>
+  <div class="grid work-grid">
+    <a class="card reveal" href="https://potionspurr.gryfi.app/"><span class="go" aria-hidden="true">↗</span><span class="badge">OUT NOW ON IPHONE</span><h3>Witch's Shop: Potions Purr</h3>
+      <p class="muted">A cozy colour-sort puzzle with a little black cat. Pour potions into matching vials, fill customers' orders and help the witch's shop grow.</p>
+      <span class="tag">iOS</span><span class="tag">Game</span></a>
+    <a class="card reveal" style="--d:1" href="https://gremlin.gryfi.app/"><span class="go" aria-hidden="true">↗</span><span class="badge soon">COMING SOON</span><h3>Gremlin</h3>
+      <p class="muted">A gentle planner for ADHD brains. It shows one thing at a time, and the creature you hatch never withers if you take a break.</p>
+      <span class="tag">Mobile app</span><span class="tag">Accessibility</span></a>
+  </div>
+  <h3 class="reveal" style="margin:48px 0 18px">More from the Witch's Shop</h3>
+  <div class="grid games">
+    <a class="card game reveal" style="--d:0" href="https://brewsudoku.gryfi.app"><span class="go" aria-hidden="true">↗</span><span class="badge soon">COMING SOON</span><h3>Witch's Shop: Brew Sudoku</h3><p class="muted">Sudoku with potion ingredients instead of numbers.</p></a>
+    <a class="card game reveal" style="--d:1" href="https://moonlitmahjong.gryfi.app"><span class="go" aria-hidden="true">↗</span><span class="badge soon">COMING SOON</span><h3>Witch's Shop: Moonlit Mahjong</h3><p class="muted">Cosy mahjong solitaire with potion ingredient tiles.</p></a>
+    <a class="card game reveal" style="--d:2" href="https://brewjam.gryfi.app"><span class="go" aria-hidden="true">↗</span><span class="badge soon">COMING SOON</span><h3>Witch's Shop: Brew Jam</h3><p class="muted">A cosy block-jam puzzle with no timer.</p></a>
+    <a class="card game reveal" style="--d:0" href="https://brewmerge.gryfi.app"><span class="go" aria-hidden="true">↗</span><span class="badge soon">COMING SOON</span><h3>Witch's Shop: Brew &amp; Merge</h3><p class="muted">A cosy merge game in a run-down shop at the edge of the woods.</p></a>
+    <a class="card game reveal" style="--d:1" href="https://guestquest.gryfi.app"><span class="go" aria-hidden="true">↗</span><span class="badge soon">COMING SOON</span><h3>Witch's Shop: Guest Quest</h3><p class="muted">A logic puzzle set in the witch’s inn.</p></a>
+    <a class="card game reveal" style="--d:2" href="https://solitairebrew.gryfi.app"><span class="go" aria-hidden="true">↗</span><span class="badge soon">COMING SOON</span><h3>Witch's Shop: Solitaire Brew</h3><p class="muted">Cosy TriPeaks solitaire in the witch’s potion shop.</p></a>
+  </div>
+  <div class="steps reveal" style="margin-top:56px">
+    <div><b>Talk</b><span class="muted">What you want to make and who it's for.</span></div>
+    <div><b>Plan</b><span class="muted">What we build, in what order, and the cost.</span></div>
+    <div><b>Build</b><span class="muted">Working versions early and often.</span></div>
+    <div><b>Look after</b><span class="muted">Launch, then fix and improve.</span></div>
+  </div>
 </div></section>
 
-<section id="experience"><div class="wrap"><h2>Experience</h2><div class="timeline"><div class="item"><h3>Senior Frontend Engineer · Shiftbase</h3><div class="muted">December 2024 – Present · Netherlands</div><ul><li>Building workforce-management software used by teams to plan, schedule and manage their people.</li><li><span class="muted">[TODO: add 2–3 concrete outcomes from your current role.]</span></li></ul></div><div class="item"><h3>Tech Lead / Senior Frontend Developer · ParkBee</h3><div class="muted">July 2023 – December 2024 · Amsterdam</div><ul><li>Designed a push-based notification architecture, saving ~50% of projected costs; ran buy-vs-build estimates, kept a decision log and shipped a proof of concept.</li><li>Built a gateway on serverless GraphQL (AWS AppSync) so React and Angular apps could consume aggregated location data, with real-time availability over WebSockets.</li><li>Set up Azure DevOps CI/CD with automated tests and linting; added monitoring with CloudWatch and the ELK Stack.</li><li>Kept the team aligned through technical documentation, code reviews and automated testing pipelines.</li></ul></div><div class="item"><h3>Senior Frontend Developer · 25Friday (for ParkBee)</h3><div class="muted">September 2022 – June 2023 · Porto, Portugal</div><ul><li>Raised the main product's performance score from 30% to 72% through Angular optimisation and lazy loading.</li><li>Brought SEO above 90% and improved Core Web Vitals (images, caching, CDN).</li><li>Introduced code standards and SonarQube, cutting PR review time by about 60%.</li></ul></div><div class="item"><h3>Senior Frontend Developer · Natixis</h3><div class="muted">April 2021 – September 2022 · Porto, Portugal</div><ul><li>Took part in migrating a key application from AngularJS to modern Angular.</li><li>Built reusable components, including an Observable-driven modal and configurable dynamic tables.</li></ul></div><div class="item"><h3>Software Development Engineer · PravaLer</h3><div class="muted">October 2018 – April 2021 · São Paulo, Brazil</div><ul><li>Took a financial simulator for students from Design Thinking through to production.</li><li>Integrated a new product type from simulation to full back-office integration in two days.</li><li>Worked across Angular, Vue, PHP and Symfony.</li></ul></div></div><details style="margin-top:8px"><summary class="muted" style="cursor:pointer">Earlier roles</summary><div class="timeline" style="margin-top:20px"><div class="item"><h3>Full Stack Developer · RLZE Grupo</h3><div class="muted">Sep 2017 – Oct 2018 · São Paulo</div><ul><li>Built the company website in WordPress and internal tools in Laravel and Angular 2.</li></ul></div><div class="item"><h3>Intern / Full Stack Developer & IT Support · CEAD / IFMG</h3><div class="muted">Apr 2016 – Sep 2017 · Minas Gerais</div><ul><li>Developed features for an e-learning platform on Moodle and PHP.</li></ul></div><div class="item"><h3>Freelance Web Developer · DMCTEC Informática</h3><div class="muted">2015 – 2020 · Remote</div><ul><li>Built a logistics tracking system (Laravel, Angular, RxJS) with OpenStreetMap route management.</li></ul></div></div></details><h2 style="margin-top:48px">Education</h2><p><b>BSc Computer Science</b>, IFSUDESTEMG (2013–2018)<br><span class="muted">Coursework completed; thesis pending</span><br><b>Computer Technician</b>, CEFET-MG (2010–2012)</p><h2 style="margin-top:48px">Skills</h2><div class="skills"><span>TypeScript / JavaScript</span><span>Angular</span><span>RxJS</span><span>React</span><span>Vue 3</span><span>GraphQL</span><span>AWS AppSync</span><span>WebSockets</span><span>CI/CD</span><span>Azure DevOps</span><span>GitHub Actions</span><span>SEO &amp; Core Web Vitals</span><span>Accessibility</span><span>UX</span><span>Responsive design</span><span>SonarQube</span></div></div></section>
+<section id="experience"><div class="wrap">
+  <div class="kicker reveal" data-n="03">Experience</div>
+  <h2 class="reveal">Where I've <span class="grad">shipped.</span></h2>
+  <div class="timeline">
+    <div class="item"><h3>Senior Frontend Engineer · Shiftbase</h3><div class="muted">December 2024 – Present · Netherlands</div><ul><li>Building workforce-management software used by teams to plan, schedule and manage their people.</li><li>[TODO: add 2–3 concrete outcomes from your current role.]</li></ul></div>
+    <div class="item"><h3>Tech Lead / Senior Frontend Developer · ParkBee</h3><div class="muted">July 2023 – December 2024 · Amsterdam</div><ul><li>Designed a push-based notification architecture, saving ~50% of projected costs; ran buy-vs-build estimates, kept a decision log and shipped a proof of concept.</li><li>Built a gateway on serverless GraphQL (AWS AppSync) so React and Angular apps could consume aggregated location data, with real-time availability over WebSockets.</li><li>Set up Azure DevOps CI/CD with automated tests and linting; added monitoring with CloudWatch and the ELK Stack.</li><li>Kept the team aligned through technical documentation, code reviews and automated testing pipelines.</li></ul></div>
+    <div class="item"><h3>Senior Frontend Developer · 25Friday (for ParkBee)</h3><div class="muted">September 2022 – June 2023 · Porto, Portugal</div><ul><li>Raised the main product's performance score from 30% to 72% through Angular optimisation and lazy loading.</li><li>Brought SEO above 90% and improved Core Web Vitals (images, caching, CDN).</li><li>Introduced code standards and SonarQube, cutting PR review time by about 60%.</li></ul></div>
+    <div class="item"><h3>Senior Frontend Developer · Natixis</h3><div class="muted">April 2021 – September 2022 · Porto, Portugal</div><ul><li>Took part in migrating a key application from AngularJS to modern Angular.</li><li>Built reusable components, including an Observable-driven modal and configurable dynamic tables.</li></ul></div>
+    <div class="item"><h3>Software Development Engineer · PravaLer</h3><div class="muted">October 2018 – April 2021 · São Paulo, Brazil</div><ul><li>Took a financial simulator for students from Design Thinking through to production.</li><li>Integrated a new product type from simulation to full back-office integration in two days.</li><li>Worked across Angular, Vue, PHP and Symfony.</li></ul></div>
+  </div>
+  <details style="margin-top:8px"><summary class="muted" style="cursor:pointer">Earlier roles</summary><div class="timeline" style="margin-top:20px">
+    <div class="item"><h3>Full Stack Developer · RLZE Grupo</h3><div class="muted">Sep 2017 – Oct 2018 · São Paulo</div><ul><li>Built the company website in WordPress and internal tools in Laravel and Angular 2.</li></ul></div>
+    <div class="item"><h3>Intern / Full Stack Developer &amp; IT Support · CEAD / IFMG</h3><div class="muted">Apr 2016 – Sep 2017 · Minas Gerais</div><ul><li>Developed features for an e-learning platform on Moodle and PHP.</li></ul></div>
+    <div class="item"><h3>Freelance Web Developer · DMCTEC Informática</h3><div class="muted">2015 – 2020 · Remote</div><ul><li>Built a logistics tracking system (Laravel, Angular, RxJS) with OpenStreetMap route management.</li></ul></div>
+  </div></details>
+  <h3 class="reveal" style="margin-top:56px">Education</h3>
+  <p class="reveal"><b>BSc Computer Science</b>, IFSUDESTEMG (2013–2018)<br><span class="muted">Coursework completed; thesis pending</span><br><b>Computer Technician</b>, CEFET-MG (2010–2012)</p>
+  <h3 class="reveal" style="margin-top:40px">Skills</h3>
+  <div class="skills reveal"><span>TypeScript / JavaScript</span><span>Angular</span><span>RxJS</span><span>React</span><span>Vue 3</span><span>GraphQL</span><span>AWS AppSync</span><span>WebSockets</span><span>CI/CD</span><span>Azure DevOps</span><span>GitHub Actions</span><span>SEO &amp; Core Web Vitals</span><span>Accessibility</span><span>UX</span><span>Responsive design</span><span>SonarQube</span></div>
+</div></section>
 
-<section id="contact"><div class="wrap">
-  <h2>Let's talk</h2>
-  <p class="lead">Based in the Netherlands. Open to freelance and studio collaborations.</p>
-  <div class="btns">
-    <a class="btn" href="mailto:maria@gryfi.app">Email me</a>
+<section id="contact" class="contact"><div class="wrap">
+  <div class="kicker reveal" data-n="04" style="justify-content:center">Contact</div>
+  <h2 class="reveal">Let's build<br><span class="grad">something.</span></h2>
+  <p class="lead reveal">Based in the Netherlands. Open to freelance and studio collaborations.</p>
+  <div class="btns reveal">
+    <a class="btn" href="mailto:maria@gryfi.app">maria@gryfi.app <span class="arrow">→</span></a>
+    <button class="btn ghost" type="button" data-copy="maria@gryfi.app">Copy email<span class="copied" role="status"></span></button>
     <a class="btn ghost" href="https://www.linkedin.com/in/maria-junqueira">LinkedIn</a>
     <a class="btn ghost" href="https://github.com/MariaJunqueira">GitHub</a>
-    <a class="btn ghost" href="https://gryfi.app">Gryfi</a>
   </div>
 </div></section>
 </main>
-<footer><div class="wrap">© 2026 Maria Junqueira · Concept projects are self-initiated and not client work.</div></footer></body></html>
+<footer><div class="wrap">© 2026 Maria Junqueira · Concept projects are self-initiated and not client work.</div></footer>
+<script src="assets/main.js" defer></script>
+</body></html>
