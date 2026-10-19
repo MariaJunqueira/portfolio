@@ -87,6 +87,12 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.15, rootMargin: "0px 0px -60px 0px" });
 $$(".reveal, .timeline .item, .stats").forEach((el) => io.observe(el));
 
+// Demo videos play only while visible, and never for people who prefer reduced motion
+$$("video[data-autoplay]").forEach((v) => {
+  if (reduce) return;
+  new IntersectionObserver(([e]) => (e.isIntersecting ? v.play().catch(() => {}) : v.pause()), { threshold: 0.3 }).observe(v);
+});
+
 // Card spotlight + tilt, magnetic buttons
 if (fine && !reduce) {
   $$(".card").forEach((card) => {
