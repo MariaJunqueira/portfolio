@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Buy vs build: how a decision log helped halve the cost of notifications — Maria Junqueira</title><meta name="description" content="The process I use to make expensive technical decisions in the open, and why the proof of concept matters more than the spreadsheet.">
+<meta property="og:title" content="Buy vs build: how a decision log helped halve the cost of notifications"><meta property="og:description" content="The process I use to make expensive technical decisions in the open, and why the proof of concept matters more than the spreadsheet.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script><link rel="stylesheet" href="../assets/styles.css?v=7"></head><body data-base="../">
+<div class="progress" aria-hidden="true"></div>
+<header class="nav"><div class="wrap"><a class="brand" href="../index.html">Maria Junqueira</a>
+<nav><a href="../index.html#work">Work</a><a href="./">Writing</a><a class="hm" href="../index.html#experience">Experience</a><a href="../index.html#contact">Contact</a><button class="icon-btn" id="k" type="button" aria-label="Open command palette"><kbd>⌘K</kbd></button><button class="icon-btn" id="theme" type="button" aria-label="Toggle theme"></button></nav></div></header>
+<main><article class="article">
+<a class="back" href="./">← All writing</a>
+<h1>Buy vs build: how a decision log helped halve the cost of notifications</h1>
+<div class="meta-line"><span>Maria Junqueira</span><span>·</span><span>October 2026</span><span>·</span><span>Architecture</span><span>·</span><span>7 min read</span></div>
+
+<p class="intro">When I was tech lead at ParkBee, we needed a notification system. Push messages, reminders, the kind of thing every product eventually wants. The first instinct in most engineering teams is to build it. We didn't, and the design we chose came in at roughly half of the projected cost.</p>
+<p>This isn't an article about why you should always buy. Sometimes building is the right call. It's about the process that made the decision easy to make, easy to explain and easy to revisit.</p>
+
+<h2>1. Write the problem down before the solution</h2>
+<p>"We need notifications" is not a requirement. Before looking at any tools, I wrote a one-page brief that answered:</p>
+<ul>
+<li><b>Who receives what?</b> Which events trigger a message, and on which channels: push, in-app, email.</li>
+<li><b>How much, how often?</b> A rough estimate of volume today and in two years. Order of magnitude is enough.</li>
+<li><b>What must never go wrong?</b> A missed marketing message is fine. A missed transactional one might not be.</li>
+<li><b>Who maintains it?</b> The most forgotten question. Every system you build is a system someone is on call for.</li>
+</ul>
+<p>That page did more for the decision than any comparison table. Writing down who actually needs each feature is often enough to shrink the "must have" list.</p>
+
+<h2>2. Compare total cost, not price</h2>
+<p>The trap in buy vs build is comparing a vendor's monthly bill with "free" in-house code. In-house code is never free. I estimated both options over the same period and included the costs that usually stay invisible:</p>
+<table>
+<tr><th>Cost</th><th>Build</th><th>Buy</th></tr>
+<tr><td>Initial engineering</td><td>High</td><td>Integration only</td></tr>
+<tr><td>Infrastructure</td><td>Queues, workers, storage</td><td>Included</td></tr>
+<tr><td>Maintenance &amp; upgrades</td><td>Ongoing, ours</td><td>Vendor's</td></tr>
+<tr><td>Delivery edge cases</td><td>Ours to discover</td><td>Mostly solved</td></tr>
+<tr><td>Subscription</td><td>None</td><td>Grows with usage</td></tr>
+<tr><td>Lock-in risk</td><td>Low</td><td>Medium, can be reduced</td></tr>
+</table>
+<p>Engineering time is the line that changes the result most often. A few weeks of senior developers costs a lot, and the opportunity cost (the product work you didn't do) is even higher.</p>
+
+<h2>3. Keep a decision log</h2>
+<p>Every significant choice went into a short decision record. Not a novel, just enough that someone joining a year later understands <em>why</em>:</p>
+<pre><code>## Decision: Notification delivery
+Date: …        Status: Accepted
+
+### Context
+What problem we're solving, constraints, expected volume.
+
+### Options considered
+1. Build on our own queue + workers
+2. Managed push service
+3. Hybrid: managed delivery, our own templates and rules
+
+### Decision
+Option 3, because …
+
+### Consequences
++ Faster to ship, delivery handled by the provider
+− Usage-based cost; we wrap the SDK so we can switch later
+Revisit when: monthly volume passes X, or pricing changes</code></pre>
+<p>The "revisit when" line is my favourite part. It turns a decision from a permanent belief into a hypothesis with an expiry date.</p>
+
+<blockquote>A decision log isn't bureaucracy. It's a gift to the person who has to change your decision later, and that person is often you.</blockquote>
+
+<h2>4. Prove it with a small proof of concept</h2>
+<p>Spreadsheets are persuasive and often wrong. Before committing, I built a working proof of concept with a managed push service (OneSignal in our case): real devices, real messages, our own events triggering them.</p>
+<p>A proof of concept answers the questions a comparison table can't:</p>
+<ul>
+<li>How painful is the SDK integration in our actual apps?</li>
+<li>Do messages arrive reliably, and how fast?</li>
+<li>Can we keep the provider behind our own interface, so switching later is a contained change?</li>
+</ul>
+<p>It also changes the conversation with stakeholders. "Here, tap this button on your phone" beats any slide.</p>
+
+<h2>5. Design for the exit</h2>
+<p>Buying doesn't have to mean lock-in. Keep your own layer in front of the provider: your events, your templates and your rules about who gets what, with the vendor only doing delivery. If prices change or a better option appears, you replace one adapter instead of rewriting the system.</p>
+
+<h2>What I'd tell my past self</h2>
+<ol>
+<li>Write the brief first. Most of the decision happens there.</li>
+<li>Count engineering and maintenance time honestly.</li>
+<li>Record the decision, including when to revisit it.</li>
+<li>Build a proof of concept before you trust the numbers.</li>
+<li>Keep your own interface in front of anything you buy.</li>
+</ol>
+<p>The result was a system that shipped faster and cost about half of what we had projected. More importantly, everyone understood why we chose it, which made it easy to defend and, one day, easy to change.</p>
+
+<div class="more"><h3>Keep reading</h3><ul><li><a href="angular-performance.html">From 30 to 72: practical Angular performance wins</a></li><li><a href="cozy-games-ux.html">What making cozy games taught me about product UX</a></li></ul></div>
+</article></main>
+<footer><div class="wrap">© 2026 Maria Junqueira</div></footer>
+<script src="../assets/main.js?v=7" defer></script>
+</body></html>

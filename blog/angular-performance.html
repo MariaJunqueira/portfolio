@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>From 30 to 72: practical Angular performance wins — Maria Junqueira</title><meta name="description" content="Lazy loading, smarter change detection and a few boring fixes that moved a real product&#x27;s performance score by more than 40 points.">
+<meta property="og:title" content="From 30 to 72: practical Angular performance wins"><meta property="og:description" content="Lazy loading, smarter change detection and a few boring fixes that moved a real product&#x27;s performance score by more than 40 points.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script><link rel="stylesheet" href="../assets/styles.css?v=7"></head><body data-base="../">
+<div class="progress" aria-hidden="true"></div>
+<header class="nav"><div class="wrap"><a class="brand" href="../index.html">Maria Junqueira</a>
+<nav><a href="../index.html#work">Work</a><a href="./">Writing</a><a class="hm" href="../index.html#experience">Experience</a><a href="../index.html#contact">Contact</a><button class="icon-btn" id="k" type="button" aria-label="Open command palette"><kbd>⌘K</kbd></button><button class="icon-btn" id="theme" type="button" aria-label="Toggle theme"></button></nav></div></header>
+<main><article class="article">
+<a class="back" href="./">← All writing</a>
+<h1>From 30 to 72: practical Angular performance wins</h1>
+<div class="meta-line"><span>Maria Junqueira</span><span>·</span><span>October 2026</span><span>·</span><span>Performance</span><span>·</span><span>8 min read</span></div>
+
+<p class="intro">On one product I worked on, the Lighthouse performance score sat at 30. A few months later it was 72. There was no rewrite and no new framework, just a list of unglamorous fixes done in the right order. Here's that list.</p>
+
+<div class="callout"><p>Every app is different, and your numbers will be too. The order matters more than the exact techniques: <b>measure, fix the biggest thing, measure again.</b></p></div>
+
+<h2>Measure before you touch anything</h2>
+<p>I started with three tools: Lighthouse for a repeatable score, the Chrome Performance panel to see what the main thread was actually doing, and a bundle analyser (<code>source-map-explorer</code> on a production build) to see what we were shipping.</p>
+<pre><code>ng build --configuration production --source-map
+npx source-map-explorer dist/**/*.js</code></pre>
+<p>The bundle view is usually the wake-up call. You find a date library with every locale, a charting package loaded on the login page, or a whole admin module downloaded by every visitor.</p>
+
+<h2>1. Lazy-load routes</h2>
+<p>The biggest single win was making sure people only downloaded the code for the page they were on. Feature areas moved behind lazy routes:</p>
+<pre><code>export const routes: Routes = [
+  { path: '', loadComponent: () => import('./home/home.component').then(m => m.HomeComponent) },
+  { path: 'account', loadChildren: () => import('./account/routes').then(m => m.ACCOUNT_ROUTES) },
+  { path: 'admin', canMatch: [isAdmin], loadChildren: () => import('./admin/routes').then(m => m.ADMIN_ROUTES) },
+];</code></pre>
+<p>Note <code>canMatch</code> on the admin route: users who can't access it never download it at all.</p>
+
+<h2>2. Calm down change detection</h2>
+<p>Angular's default change detection checks every component on every event. In big component trees, that adds up. The fixes were simple but needed discipline:</p>
+<ul>
+<li><b>OnPush everywhere it's safe.</b> Components re-render only when their inputs change or an observable they use emits.</li>
+<li><b><code>trackBy</code> on every list</b> (or <code>track</code> in the new control flow), so Angular reuses DOM nodes instead of rebuilding them.</li>
+<li><b>No function calls in templates.</b> <code>{{ total(items) }}</code> runs on every check. A pure pipe or a precomputed value runs once.</li>
+<li><b>The <code>async</code> pipe instead of manual subscriptions</b>, which also removed a few memory leaks.</li>
+</ul>
+<pre><code>@Component({
+  selector: 'app-location-list',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `
+    @for (loc of locations$ | async; track loc.id) {
+      &lt;app-location-card [location]="loc" /&gt;
+    }
+  `,
+})
+export class LocationListComponent {
+  locations$ = inject(LocationService).locations$;
+}</code></pre>
+
+<h2>3. Fix images (it's always images)</h2>
+<p>Images were the heaviest thing on most pages. We served modern formats, gave every image explicit dimensions to stop layout shifts, sized them for the device, and lazy-loaded anything below the fold. Angular's <code>NgOptimizedImage</code> directive makes most of this the default:</p>
+<pre><code>&lt;img ngSrc="hero.webp" width="1200" height="600" priority /&gt;
+&lt;img ngSrc="card.webp" width="400" height="300" /&gt;  &lt;!-- lazy by default --&gt;</code></pre>
+
+<h2>4. Get out of the way of first paint</h2>
+<ul>
+<li>Reduced render-blocking resources: deferring non-critical scripts, inlining what the first screen needs, and loading fonts with <code>font-display: swap</code>.</li>
+<li>Served static assets from a CDN with long cache headers and hashed filenames, so returning visitors download almost nothing.</li>
+</ul>
+<p>These changes helped SEO as much as speed. Together with proper meta tags and structured data, the SEO score went above 90.</p>
+
+<h2>5. Lock it in with budgets</h2>
+<p>Performance work fades unless something stops regressions. Angular's build budgets fail the build when a bundle grows past a limit:</p>
+<pre><code>"budgets": [
+  { "type": "initial", "maximumWarning": "500kb", "maximumError": "800kb" },
+  { "type": "anyComponentStyle", "maximumWarning": "6kb" }
+]</code></pre>
+<p>A failing build starts a conversation at the right moment: before the slow code ships, not after users feel it.</p>
+
+<h2>The boring truth</h2>
+<p>None of this is clever. The 40-point jump came from doing the obvious things consistently and measuring after each one. If you only do one thing this week, run a bundle analyser on your production build. I promise you'll find something.</p>
+
+<div class="more"><h3>Keep reading</h3><ul><li><a href="buy-vs-build.html">Buy vs build: how a decision log helped halve the cost of notifications</a></li><li><a href="cozy-games-ux.html">What making cozy games taught me about product UX</a></li></ul></div>
+</article></main>
+<footer><div class="wrap">© 2026 Maria Junqueira</div></footer>
+<script src="../assets/main.js?v=7" defer></script>
+</body></html>

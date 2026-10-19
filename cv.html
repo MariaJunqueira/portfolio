@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Maria Junqueira — CV</title>
+<meta name="description" content="CV of Maria Junqueira, Senior Frontend Engineer.">
+<style>
+@page{size:A4;margin:11mm 14mm}
+:root{--ink:#17151c;--muted:#5d5866;--accent:#5b3df5;--line:#e4e0ea}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font:9.2pt/1.4 "Inter","Helvetica Neue",Arial,sans-serif;background:#fff}
+.page{max-width:210mm;margin:0 auto;padding:0}
+@media screen{body{background:#eeeaf3}.page{background:#fff;padding:14mm 15mm;margin:24px auto;box-shadow:0 10px 40px rgba(0,0,0,.1)}}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding-bottom:10px;border-bottom:2px solid var(--ink);margin-bottom:14px}
+h1{font-size:24pt;line-height:1;margin:0 0 4px;letter-spacing:-.02em}
+.role{color:var(--accent);font-weight:600;font-size:11.5pt}
+.contact{text-align:right;font-size:9pt;color:var(--muted);line-height:1.6}
+.contact a{color:inherit;text-decoration:none}
+h2{font-size:8.5pt;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);margin:12px 0 6px}
+p{margin:0 0 6px}
+.job{margin-bottom:8px;break-inside:avoid}
+.job-h .o{color:var(--muted);font-size:9pt;white-space:normal}
+.job-h{display:flex;justify-content:space-between;gap:12px}
+.job-h b{font-size:10.5pt}
+.job-h span{color:var(--muted);font-size:9pt;white-space:nowrap}
+.org{color:var(--muted);font-size:9pt;margin-bottom:3px}
+ul{margin:2px 0 0;padding-left:15px}
+li{margin-bottom:1px}
+li::marker{color:var(--accent)}
+.skills{display:flex;flex-wrap:wrap;gap:4px 6px}
+.skills span{border:1px solid var(--line);border-radius:4px;padding:0 6px;font-size:8.5pt}
+.two{display:grid;grid-template-columns:1.3fr 1fr;gap:20px}
+.earlier .job{margin-bottom:3px}
+@media screen and (max-width:800px){.page{padding:56px 18px 24px;margin:0}header{flex-direction:column;align-items:flex-start}.contact{text-align:left}.two{grid-template-columns:1fr}.job-h{flex-wrap:wrap}}
+.back{position:fixed;top:12px;left:12px;font:600 13px sans-serif;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;text-decoration:none}
+@media print{.back{display:none}}
+</style></head><body>
+<a class="back" href="index.html">← Portfolio</a>
+<div class="page">
+<header>
+  <div><h1>Maria Junqueira</h1><div class="role">Senior Frontend Engineer</div></div>
+  <div class="contact">Netherlands<br><a href="mailto:maria@gryfi.app">maria@gryfi.app</a><br><a href="https://mariajunqueira.github.io/portfolio/">mariajunqueira.github.io/portfolio</a><br><a href="https://www.linkedin.com/in/maria-junqueira">linkedin.com/in/maria-junqueira</a> · <a href="https://github.com/MariaJunqueira">github.com/MariaJunqueira</a></div>
+</header>
+
+<h2>Profile</h2>
+<p>Senior Frontend Engineer with 10+ years building web applications in Angular, React and Vue. I focus on performance, accessibility and long-term architecture: I've raised a product's performance score from 30 to 72, cut PR review time by about 60% with code standards, and designed a notification architecture that saved roughly 50% of projected costs. I also run Gryfi, a small studio that designs and builds games, apps and websites.</p>
+
+<h2>Experience</h2>
+<div class="job"><div class="job-h"><b>Senior Frontend Engineer</b><span>Dec 2024 – Present</span></div><div class="org">Shiftbase · Netherlands</div>
+<ul><li>Building workforce-management software that teams use to plan, schedule and manage their people.</li></ul></div>
+
+<div class="job"><div class="job-h"><b>Founder</b><span>Side studio</span></div><div class="org">Gryfi · gryfi.app</div>
+<ul><li>Designed and shipped Witch's Shop: Potions Purr, a cozy colour-sort puzzle game for iPhone with 100+ levels.</li><li>Building Gremlin, a planner for ADHD brains, and a series of Witch's Shop puzzle games.</li></ul></div>
+
+<div class="job"><div class="job-h"><b>Tech Lead / Senior Frontend Developer</b><span>Jul 2023 – Dec 2024</span></div><div class="org">ParkBee · Amsterdam</div>
+<ul><li>Designed a push-based notification architecture, saving ~50% of projected costs; ran buy-vs-build estimates, kept a decision log and built a proof of concept with OneSignal.</li>
+<li>Built a serverless GraphQL gateway (AWS AppSync) so React and Angular apps could consume aggregated location data, with real-time availability over WebSockets.</li>
+<li>Set up Azure DevOps CI/CD with automated tests and linting; added monitoring with CloudWatch and the ELK Stack.</li></ul></div>
+
+<div class="job"><div class="job-h"><b>Senior Frontend Developer</b><span>Sep 2022 – Jun 2023</span></div><div class="org">25Friday (for ParkBee) · Porto, Portugal</div>
+<ul><li>Raised the main product's performance score from 30% to 72% through Angular optimisation and lazy loading.</li>
+<li>Brought SEO above 90% and improved Core Web Vitals with image optimisation, caching and a CDN.</li>
+<li>Introduced code standards and SonarQube, cutting PR review time by about 60%.</li></ul></div>
+
+<div class="job"><div class="job-h"><b>Senior Frontend Developer</b><span>Apr 2021 – Sep 2022</span></div><div class="org">Natixis · Porto, Portugal</div>
+<ul><li>Took part in migrating a key application from AngularJS to modern Angular.</li>
+<li>Built reusable components, including an Observable-driven modal and configurable dynamic tables, with unit and E2E tests.</li></ul></div>
+
+<div class="job"><div class="job-h"><b>Software Development Engineer</b><span>Oct 2018 – Apr 2021</span></div><div class="org">PravaLer · São Paulo, Brazil</div>
+<ul><li>Took a financial simulator for students from Design Thinking through to production.</li>
+<li>Integrated a new product type from simulation to full back-office integration in two days.</li>
+<li>Worked across Angular, Vue, PHP and Symfony.</li></ul></div>
+
+<div class="earlier">
+<div class="job"><div class="job-h"><div><b>Full Stack Developer</b> <span class="o">· RLZE Grupo, São Paulo</span></div><span>Sep 2017 – Oct 2018</span></div></div>
+<div class="job"><div class="job-h"><div><b>Intern / Full Stack Developer &amp; IT Support</b> <span class="o">· CEAD / IFMG</span></div><span>Apr 2016 – Sep 2017</span></div></div>
+<div class="job"><div class="job-h"><div><b>Freelance Web Developer</b> <span class="o">· DMCTEC Informática, remote</span></div><span>2015 – 2020</span></div></div>
+</div>
+
+<div class="two">
+<div><h2>Skills</h2><div class="skills"><span>TypeScript</span><span>JavaScript</span><span>Angular</span><span>RxJS</span><span>React</span><span>Vue 3</span><span>HTML/CSS</span><span>GraphQL</span><span>AWS AppSync</span><span>WebSockets</span><span>CI/CD</span><span>Azure DevOps</span><span>GitHub Actions</span><span>Core Web Vitals</span><span>SEO</span><span>Accessibility</span><span>UX</span><span>Testing</span></div></div>
+<div><h2>Education</h2>
+<p><b>BSc Computer Science</b>, IFSUDESTEMG, 2013 – 2018<br><span style="color:var(--muted)">Coursework completed; thesis pending</span></p>
+<p><b>Computer Technician</b>, CEFET-MG, 2010 – 2012</p></div>
+</div>
+</div>
+</body></html>

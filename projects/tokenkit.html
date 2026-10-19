@@ -3,9 +3,10 @@
 <title>TokenKit — Maria Junqueira</title><meta name="description" content="A design-token pipeline and small component library with light, dark and high-contrast themes.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/styles.css?v=5"></head><body>
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="../assets/styles.css?v=7"></head><body data-base="../">
 <header class="nav"><div class="wrap"><a class="brand" href="../index.html">Maria Junqueira</a>
-<nav><a href="../index.html#work">Work</a><a href="../index.html#experience">Experience</a><a href="../index.html#contact">Contact</a></nav></div></header>
+<nav><a href="../index.html#work">Work</a><a class="hm" href="../blog/">Writing</a><a class="hm" href="../index.html#experience">Experience</a><a href="../index.html#contact">Contact</a><button class="icon-btn" id="k" type="button" aria-label="Open command palette"><kbd>⌘K</kbd></button><button class="icon-btn" id="theme" type="button" aria-label="Toggle theme"></button></nav></div></header>
 <main><div class="wrap project-hero prose" style="max-width:none"><a href="../index.html#work" class="muted">← All work</a>
 <div class="eyebrow" style="margin-top:20px">Concept project · 2026</div><h1>TokenKit</h1><p class="lead">A design-token pipeline and small component library with light, dark and high-contrast themes.</p>
 <div class="meta"><div><b>Role</b>Design &amp; frontend</div><div><b>Type</b>Self-initiated concept</div><div><b>Stack</b>CSS custom properties, Storybook-style docs</div></div></div>
@@ -27,4 +28,5 @@ document.querySelectorAll("#tk [data-t]").forEach(b=>b.onclick=()=>{const v=T[b.
 ["--p-bg","--p-fg","--p-line","--p-brand","--p-on"].forEach((k,i)=>s.setProperty(k,v[i]))});
 document.querySelector("#tk [data-t=light]").click();
 </script>
-<footer><div class="wrap">© 2026 Maria Junqueira · Concept projects are self-initiated and not client work.</div></footer></body></html>
+<footer><div class="wrap">© 2026 Maria Junqueira · Concept projects are self-initiated and not client work.</div></footer><script src="../assets/main.js?v=7" defer></script>
+</body></html>
