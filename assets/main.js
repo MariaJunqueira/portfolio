@@ -33,7 +33,11 @@ $$("[data-split]").forEach((el) => {
 // Typewriter rotator
 const rot = document.querySelector(".rotator .txt");
 if (rot) {
-  const words = JSON.parse(rot.parentElement.dataset.words);
+  const box = rot.closest(".rotator");
+  const words = JSON.parse(box.dataset.words);
+  // Invisible copies of every phrase share the same grid cell, so the box is always
+  // as big as the longest phrase and the layout never jumps while typing
+  words.forEach((w) => box.insertAdjacentHTML("beforeend", `<span class="rot-size" aria-hidden="true">${w}<span class="caret"></span></span>`));
   let w = 0, c = words[0].length, del = true;
   const tick = () => {
     const word = words[w];
