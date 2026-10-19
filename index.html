@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
-<link rel="stylesheet" href="assets/styles.css?v=8"></head><body data-base="">
+<link rel="stylesheet" href="assets/styles.css?v=9"></head><body data-base="">
 <div class="progress" aria-hidden="true"></div>
 <header class="nav"><div class="wrap"><a class="brand" href="#top">Maria Junqueira</a>
 <nav><a class="hm" href="#about">About</a><a href="#work">Work</a><a class="hm" href="#demos">Demos</a><a class="hm" href="#gryfi">Gryfi</a><a class="hm" href="#writing">Writing</a><a class="hm" href="#experience">Experience</a><a href="#contact">Contact</a><button class="icon-btn" id="k" type="button" aria-label="Open command palette"><kbd>⌘K</kbd></button><button class="icon-btn" id="theme" type="button" aria-label="Toggle theme"></button></nav></div></header>
@@ -62,6 +62,15 @@
   <div class="kicker reveal" data-n="02">Selected work</div>
   <h2 class="reveal">Things I've made <span class="grad">lately.</span></h2>
   <div class="grid work-grid">
+    <a class="card reveal wide" href="https://github.com/MariaJunqueira/momentum">
+      <div class="thumb" aria-hidden="true"><div class="mini-chat">
+        <span class="b in">Hi! Are you online? 👋</span><span class="b out">Yes, connected over WebSockets ⚡</span><span class="b in">Only you can see this message</span><span class="b out typing"><i></i><i></i><i></i></span>
+      </div></div>
+      <span class="go" aria-hidden="true">↗</span>
+      <span class="badge">OPEN SOURCE · TUTORIAL SERIES</span><h3>Momentum</h3>
+      <p class="muted">A real-time messaging app built step by step in a three-part Medium series: an RxJS WebSocket service in Angular, per-user message routing, then JWT authentication with MongoDB and Docker.</p>
+      <div class="tag-row"><span class="tag">Angular</span><span class="tag">RxJS</span><span class="tag">WebSockets</span><span class="tag">Node.js</span><span class="tag">Docker</span></div>
+    </a>
     <a class="card reveal" href="#gryfi">
       <div class="thumb"><img src="https://gryfi.app/_astro/logo-hero-lockup-1024.DGI3WZ8i.webp" alt="Gryfi, a baby griffin on a rock above floating islands" loading="lazy"></div>
       <span class="go" aria-hidden="true">↓</span>
@@ -167,6 +176,17 @@
     <a class="card post reveal" style="--d:1" href="blog/angular-performance.html"><div class="meta-line"><span>Performance</span><span>·</span><span>8 min read</span></div><h3>From 30 to 72: practical Angular performance wins</h3><p class="muted">Lazy loading, smarter change detection and a few boring fixes that moved a real product's performance score by more than 40 points.</p><span class="read">Read article</span></a>
     <a class="card post reveal" style="--d:2" href="blog/cozy-games-ux.html"><div class="meta-line"><span>UX</span><span>·</span><span>6 min read</span></div><h3>What making cozy games taught me about product UX</h3><p class="muted">Undo buttons, forgiving timers and a creature that never dies: lessons from Potions Purr and Gremlin that apply to any app.</p><span class="read">Read article</span></a>
   </div>
+  <div class="series reveal">
+    <div class="series-head">
+      <div><span class="badge">SERIES ON MEDIUM · 2024</span><h3>Building a real-time messaging app with Angular, RxJS &amp; WebSockets</h3>
+      <p class="muted">A hands-on tutorial series that grows an echo server into an authenticated, Dockerised chat app. The code is open source as <a href="https://github.com/MariaJunqueira/momentum">Momentum</a>.</p></div>
+    </div>
+    <ol class="series-list">
+      <li><a href="https://medium.com/@mariajunqueira/part-1-creating-a-websocket-message-service-in-angular-9a9c80911c33"><span class="num">1</span><span><b>Creating a WebSocket message service in Angular</b><small>Node.js + ws server, an RxJS <code>webSocket</code> service and a messages component · 6 min</small></span><span class="go" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://medium.com/@mariajunqueira/part-2-improving-the-websocket-message-service-in-angular-b39340298841"><span class="num">2</span><span><b>Improving the WebSocket message service</b><small>Client IDs, registration and routing messages to specific users · 6 min</small></span><span class="go" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://medium.com/p/c4dd704ef16e"><span class="num">3</span><span><b>Implementing authentication</b><small>JWT login and signup, MongoDB and Docker Compose · 5 min</small></span><span class="go" aria-hidden="true">↗</span></a></li>
+    </ol>
+  </div>
 </div></section>
 
 <section id="now" style="padding-top:0"><div class="wrap">
@@ -220,5 +240,5 @@
 </div></div>
 </main>
 <footer><div class="wrap">© 2026 Maria Junqueira · Concept projects are self-initiated and not client work.</div></footer>
-<script src="assets/main.js?v=8" defer></script>
+<script src="assets/main.js?v=9" defer></script>
 </body></html>
