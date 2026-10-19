@@ -5,10 +5,10 @@
 <meta property="og:image" content="https://gryfi.app/_astro/logo-hero-lockup-1024.DGI3WZ8i.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=4"></head><body>
+<link rel="stylesheet" href="assets/styles.css?v=5"></head><body>
 <div class="progress" aria-hidden="true"></div>
 <header class="nav"><div class="wrap"><a class="brand" href="#top">Maria Junqueira</a>
-<nav><a href="#work">Work</a><a href="#demos">Demos</a><a href="#gryfi">Gryfi</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav></div></header>
+<nav><a href="#about">About</a><a href="#work">Work</a><a href="#demos">Demos</a><a href="#gryfi">Gryfi</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav></div></header>
 <main id="top">
 
 <div class="hero">
@@ -37,8 +37,28 @@
   <span aria-hidden="true">TypeScript</span><span aria-hidden="true">Angular</span><span aria-hidden="true">RxJS</span><span aria-hidden="true">React</span><span aria-hidden="true">Vue 3</span><span aria-hidden="true">GraphQL</span><span aria-hidden="true">WebSockets</span><span aria-hidden="true">Accessibility</span><span aria-hidden="true">Core Web Vitals</span><span aria-hidden="true">Design systems</span><span aria-hidden="true">CI/CD</span><span aria-hidden="true">Game feel</span>
 </div></div>
 
+<section id="about"><div class="wrap about">
+  <div class="about-photo reveal">
+    <img src="assets/img/maria.webp" alt="Maria as a collectible figurine with curly hair, a floral shirt and cream trousers, standing in a grand museum hall" width="900" height="1200" loading="lazy">
+    <span class="sticker s1">Hi! 👋</span>
+    <span class="sticker s2">📍 Netherlands</span>
+  </div>
+  <div>
+    <div class="kicker reveal" data-n="01">About me</div>
+    <h2 class="reveal">Hi, I'm <span class="grad">Maria.</span></h2>
+    <p class="reveal">I'm a frontend engineer from Brazil. I studied computer science in Minas Gerais, built fintech products in São Paulo, moved to Porto to work on banking and mobility software, and now live in the Netherlands, where I'm a Senior Frontend Engineer at Shiftbase.</p>
+    <p class="reveal">I care about the details people feel but rarely notice: a page that loads instantly, a form that's easy to fill in, a button that works with a keyboard. I like turning messy problems into clear architecture, and helping teams ship with confidence.</p>
+    <p class="reveal">Outside work, I run <b>Gryfi</b>, where I make cozy games like Potions Purr and gentle apps like Gremlin.</p>
+    <ol class="journey reveal">
+      <li><span>🇧🇷</span><b>Brazil</b><small>2010 – 2021</small></li>
+      <li><span>🇵🇹</span><b>Portugal</b><small>2021 – 2023</small></li>
+      <li><span>🇳🇱</span><b>Netherlands</b><small>2023 – now</small></li>
+    </ol>
+  </div>
+</div></section>
+
 <section id="work"><div class="wrap">
-  <div class="kicker reveal" data-n="01">Selected work</div>
+  <div class="kicker reveal" data-n="02">Selected work</div>
   <h2 class="reveal">Things I've made <span class="grad">lately.</span></h2>
   <div class="grid work-grid">
     <a class="card reveal" href="#gryfi">
@@ -99,23 +119,30 @@
 <section id="gryfi" class="gryfi"><div class="wrap">
   <div class="gryfi-hero">
     <div>
-      <div class="kicker reveal" data-n="02">My studio</div>
+      <div class="kicker reveal" data-n="03">My studio</div>
       <h2 class="reveal">Gryfi. Built with care, <span class="grad">made to fly.</span></h2>
       <p class="lead reveal">A small studio that designs and builds apps, games and websites, and explains every step in plain language.</p>
       <div class="btns reveal"><a class="btn" href="https://gryfi.app">Visit gryfi.app <span class="arrow">↗</span></a></div>
     </div>
     <img class="reveal" src="https://gryfi.app/_astro/logo-hero-lockup-1024.DGI3WZ8i.webp" alt="Gryfi, the baby griffin with cream and chestnut feathers, above floating islands and a golden castle" loading="lazy">
   </div>
-  <div class="grid work-grid">
-    <a class="card reveal" href="https://potionspurr.gryfi.app/"><span class="go" aria-hidden="true">↗</span><span class="badge">OUT NOW ON IPHONE</span><h3>Witch's Shop: Potions Purr</h3>
-      <p class="muted">A cozy colour-sort puzzle with a little black cat. Pour potions into matching vials, fill customers' orders and help the witch's shop grow.</p>
-      <span class="tag">iOS</span><span class="tag">Game</span></a>
-    <a class="card reveal" style="--d:1" href="https://gremlin.gryfi.app/"><span class="go" aria-hidden="true">↗</span><span class="badge soon">COMING SOON</span><h3>Gremlin</h3>
-      <p class="muted">A gentle planner for ADHD brains. It shows one thing at a time, and the creature you hatch never withers if you take a break.</p>
-      <span class="tag">Mobile app</span><span class="tag">Accessibility</span></a>
+  <div class="feature reveal">
+    <div class="feature-copy">
+      <span class="badge">OUT NOW ON IPHONE</span>
+      <h3>Witch's Shop: Potions Purr</h3>
+      <p class="muted">A cozy colour-sort puzzle with a little black cat. Pour bright potions into matching vials, serve the witch's customers before they lose patience, and help the shop grow, one level at a time.</p>
+      <ul class="feature-list"><li>100+ handcrafted levels with a forest map</li><li>Customer orders, speed bonus and three-star ratings</li><li>Daily rewards, chests and an ad-free option</li></ul>
+      <div class="btns"><a class="btn" href="https://potionspurr.gryfi.app/">See Potions Purr <span class="arrow">↗</span></a></div>
+    </div>
+    <div class="phones" aria-label="Potions Purr screenshots">
+      <figure class="phone p1"><img src="assets/img/potions-levels.webp" alt="Level map: stone level markers along a path through a moonlit forest, levels 100 to 106 with three stars each" width="640" height="1385" loading="lazy"></figure>
+      <figure class="phone p2"><img src="assets/img/potions-home.webp" alt="Home screen: the witch's cottage under a full moon, a black cat at the door and a Play Level 106 button" width="640" height="1385" loading="lazy"></figure>
+      <figure class="phone p3"><img src="assets/img/potions-play.webp" alt="Gameplay: ten glass flasks of layered coloured potions on the shop counter, with a wizard and the cat waiting for orders" width="640" height="1385" loading="lazy"></figure>
+    </div>
   </div>
-  <h3 class="reveal" style="margin:48px 0 18px">More from the Witch's Shop</h3>
+  <h3 class="reveal" style="margin:64px 0 18px">Coming soon from Gryfi</h3>
   <div class="grid games">
+    <a class="card game reveal" href="https://gremlin.gryfi.app/"><span class="go" aria-hidden="true">↗</span><span class="badge soon">APP · COMING SOON</span><h3>Gremlin</h3><p class="muted">A gentle planner for ADHD brains. One thing at a time, and the creature you hatch never withers if you take a break.</p></a>
     <a class="card game reveal" style="--d:0" href="https://brewsudoku.gryfi.app"><span class="go" aria-hidden="true">↗</span><span class="badge soon">COMING SOON</span><h3>Witch's Shop: Brew Sudoku</h3><p class="muted">Sudoku with potion ingredients instead of numbers.</p></a>
     <a class="card game reveal" style="--d:1" href="https://moonlitmahjong.gryfi.app"><span class="go" aria-hidden="true">↗</span><span class="badge soon">COMING SOON</span><h3>Witch's Shop: Moonlit Mahjong</h3><p class="muted">Cosy mahjong solitaire with potion ingredient tiles.</p></a>
     <a class="card game reveal" style="--d:2" href="https://brewjam.gryfi.app"><span class="go" aria-hidden="true">↗</span><span class="badge soon">COMING SOON</span><h3>Witch's Shop: Brew Jam</h3><p class="muted">A cosy block-jam puzzle with no timer.</p></a>
@@ -132,7 +159,7 @@
 </div></section>
 
 <section id="experience"><div class="wrap">
-  <div class="kicker reveal" data-n="03">Experience</div>
+  <div class="kicker reveal" data-n="04">Experience</div>
   <h2 class="reveal">Where I've <span class="grad">shipped.</span></h2>
   <div class="timeline">
     <div class="item"><h3>Senior Frontend Engineer · Shiftbase</h3><div class="muted">December 2024 – Present · Netherlands</div><ul><li>Building workforce-management software used by teams to plan, schedule and manage their people.</li><li>[TODO: add 2–3 concrete outcomes from your current role.]</li></ul></div>
@@ -153,7 +180,7 @@
 </div></section>
 
 <section id="contact" class="contact"><div class="wrap">
-  <div class="kicker reveal" data-n="04" style="justify-content:center">Contact</div>
+  <div class="kicker reveal" data-n="05" style="justify-content:center">Contact</div>
   <h2 class="reveal">Let's build<br><span class="grad">something.</span></h2>
   <p class="lead reveal">Based in the Netherlands. Open to freelance and studio collaborations.</p>
   <div class="btns reveal">
@@ -165,5 +192,5 @@
 </div></section>
 </main>
 <footer><div class="wrap">© 2026 Maria Junqueira · Concept projects are self-initiated and not client work.</div></footer>
-<script src="assets/main.js?v=4" defer></script>
+<script src="assets/main.js?v=5" defer></script>
 </body></html>
